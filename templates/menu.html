@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню</title>
+    <style>
+        header {
+            background-color: #F97316;
+            color: white;
+            padding: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFF7ED;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .item {
+            background-color: #fff;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        .item:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .item h3 {
+            font-size: 1.2em;
+            color: #7C2D12;
+            margin-bottom: 10px;
+        }
+        .item p {
+            font-size: 1em;
+            color: #000;
+            margin-bottom: 10px;
+        }
+        .item .price {
+            font-size: 1.1em;
+            color: #7C2D12;
+            background-color: #FEDAAA;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .orderNow, a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #F97316;
+            color: #fff;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .orderNow:hover, a:hover {
+            background-color: #fbbf24;
+            transform: scale(1.1);
+        }
+        .delete-button {
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .delete-button:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+        delete, a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #F97316;
+            color: #fff;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .delete:hover, a:hover {
+            background-color: #dc2626;
+            transform: scale(1.1);
+        }
+        make_yourself {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #F97316;
+            color: #fff;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .make_yourself:hover, a:hover {
+            background-color: #bef264;
+            transform: scale(1.1);
+        }
+        button {
+                         display: inline-block;
+            padding: 10px 20px;
+            background-color: #F97316;
+            color: #fff;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .button:hover, a:hover {
+            background-color: #92400e;
+            transform: scale(1.1);
+        }
+        ordernow2{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #F97316;
+            color: #fff;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .ordernow2:hover, a:hover {
+            background-color: #92400e;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Меню</h1>
+</header>
+
+<div class="sort-buttons">
+    <a href="/menu?sort=up" class="button">Найдешевша › найдорожча</a>
+    <a href="/menu?sort=desc" class="button">Найдорожча › найдешевша</a>
+    <a href="/add" class="button">Зроби сам!</a>
+</div>
+<ul>
+    {% for item in menu_items %}
+    <li class="item">
+        <h3>{{ item['name'] }}</h3>
+        <p>{{ item['description'] }}</p>
+        <p class="price">Ціна: {{ item['price'] }} грн</p>
+        <a href="/order" class="orderNow">Замовити зараз</a>
+        <form action="{{ url_for('delete', pizza_id=item['id']) }}" method="POST">
+            <button type="submit" class="delete">Видалити🗑️</button>
+             <a href="/{{ item['id'] }}/edit" class="button">Коригувати✍️</a>
+        </form>
+    </li>
+
+    {% endfor %}
+</ul>
+</body>
+</html>
+

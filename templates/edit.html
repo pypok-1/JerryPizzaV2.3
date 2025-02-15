@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Pizza</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFF7ED;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            background-color: #FF6F00;
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .item {
+            background-color: white;
+            width: 100%;
+            max-width: 800px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        button, a {
+            padding: 12px 25px;
+            background-color: #FF6F00;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        button:hover, a:hover {
+            background-color: #FF8C00;
+        }
+
+        .back {
+            display: inline-block;
+            background-color: #E74C3C;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            background-color: #C0392B;
+            transform:  scale(1.1);
+        }
+    </style>
+</head>
+<body>
+<header> Редаперони</header>
+<div class="item">
+    <form method="POST">
+        <label for="name">Pizza Name:</label>
+        <input type="text" id="name" name="name" value="{{ pizza['name'] }}" required>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="{{ pizza['description'] }}" required>
+
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" value="{{ pizza['price'] }}" required>
+
+        <button type="submit" class="orderNow">Save</button>
+    </form>
+</div>
+<a href="/menu" class="back">Back</a>
+</body>
+
+
+</html>
