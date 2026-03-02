@@ -80,7 +80,20 @@ Whether you want a tried-and-true classic or a brand-new creation, Smart Recipe 
   <img src="https://img.shields.io/badge/cAdvisor-✓-00ADD8?style=for-the-badge&logo=google" />
   <img src="https://img.shields.io/badge/Promtail-✓-FFA500?style=for-the-badge&logo=grafana" />
 </p>
-
+## Table of Contents
+- [About](#about)
+- [Functionality](#functionality)
+- [KeyFeatures](#key-features)
+- [How It Works](#how-it-works)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Install & Run](#install--run)
+- [Usage Examples](#usage-examples)
+- [Database & Content](#database--content)
+- [Contributing](#contributing)
+- [License](#license)
+- [Developers](#developers)
 ---
 
 ## ✨ Key Features
