@@ -17,7 +17,6 @@
 ![Site: Smart Recipe](https://img.shields.io/badge/Site-Smart%20Recipe-orange?style=for-the-badge)
 ![Recipes: 5k+](https://img.shields.io/badge/Recipes-5k%2B-brightgreen?style=for-the-badge)
 ![Generator: AI + Heuristics](https://img.shields.io/badge/Generator-AI%20%2B%20Heuristics-yellow?style=for-the-badge)
-![Admin Panel: Custom Django](https://img.shields.io/badge/Admin%20Panel-Custom%20Django-red?style=for-the-badge)
 
 Welcome to **Smart Recipe** — the delightful web experience powered by the Recipe220 project. Smart Recipe helps you discover, create, and cook amazing meals: browse our 5,000+ recipe database, or generate new recipes instantly from the ingredients you already have. Ready to turn leftovers into magic? Let's cook!
 
@@ -48,39 +47,7 @@ Project repository: [Recipe220](https://github.com/AndriyPy/Recipe220)
 
 ---
 
-## Admin Panel
-
-Smart Recipe features a **fully customized Django admin panel** for efficient site management:
-
-### **User Management** (`/admin/users/profile/`)
-- 👥 View all registered users with their details
-- 📊 Filter users by gender, country, and active status
-- 🔍 Search by username or email
-- ✅ Activate/deactivate user accounts with bulk actions
-
-### **Email Verification** (`/admin/users/emailverification/`)
-- 📧 Track all email verification codes
-- ⏱️ Monitor code status: Active, Used, or Expired
-- 🗑️ Bulk delete expired verifications
-- 🔗 Quick link to user profiles
-
-### **Recipe Management** (`/admin/ai_assistent/recipes/`)
-- 📝 View all AI-generated recipes
-- 👨‍🍳 See recipe author and creation date
-- 🔎 Search recipes by title, ingredients, or author
-- 📅 Filter recipes by creation date
-
-### **Admin Panel Features:**
-- 🎨 Custom branding with "SmartRecipe Administration" headers
-- 📱 Responsive design that works on all devices
-- ⚡ Bulk actions for efficient management
-- 🔒 Secure access (admin-only)
-
-Access the admin panel at: `https://yoursite.com/admin/`
-
----
-
-### Functionality
+## Functionality
 
 ### **User Management**
 - Registration with email verification (6-digit code)
@@ -93,12 +60,12 @@ Access the admin panel at: `https://yoursite.com/admin/`
 - **Search**: 
   - Fuzzy search (typo-tolerant)
   - Search by name and ingredients
-- **Sorting(SOON)**:  
+- **Sorting (SOON)**:  
   - By name (A-Z, Z-A)
   - By rating
   - By cooking time
   - By servings
-- **Recipe details(soon)** page with:
+- **Recipe details (soon)** page with:
   - Ingredients list
   - Step-by-step instructions
   - Preparation time
@@ -118,31 +85,101 @@ Access the admin panel at: `https://yoursite.com/admin/`
 
 ---
 
-### Key Features
+## Admin Panel
 
-✅ **Custom Admin Panel** - Complete control over users, recipes, and verifications  
-✅ **User Authentication** - Email verification + Google SSO + Cloudflare protection  
-✅ **5,000+ Recipes** - Extensive database of curated recipes  
-✅ **AI Recipe Generator** - Create recipes from ingredients you have  
-✅ **Fuzzy Search** - Find recipes even with typos  
-✅ **Modern UI** - Beautiful, responsive design  
-✅ **Docker Support** - Easy deployment with containers  
-✅ **Monitoring** - Full observability stack included  
+Smart Recipe features a clean and functional Django admin interface for efficient content management.
+
+### **User Management**
+- View complete user profiles with registration dates
+- Filter users by gender, country, or account status
+- Activate or deactivate user accounts
+- Quick search by username or email
+
+### **Email Verification**
+- Track verification codes with status indicators (Active, Used, Expired)
+- Monitor code creation and expiration timestamps
+- Bulk delete expired verification records
+
+### **AI Generated Recipes**
+The admin panel provides a streamlined view of all AI-generated recipes:
+
+- **Recipe List View**: Displays recipe ID, title, author, and creation date
+- **Chronological Order**: Newest recipes appear first by default
+- **Date Filtering**: Filter recipes by creation date
+- **Search Functionality**: Find recipes by title, ingredients, or author username
+- **Clean Interface**: Focuses on essential information without technical clutter
+
+Access the admin panel at: `https://yoursite.com/admin/`
 
 ---
 
-## Developers
+## Key Features
 
-<div>
-  <a href="https://github.com/AndriyPy">
-    <img src="https://avatars.githubusercontent.com/u/187444054?v=4" width="100" style="border-radius:50%">
-    <br>
-    <b>AndriyPy</b>
-  </a>
+✅ **AI Recipe Generation** - Create unique recipes from any ingredients  
+✅ **5,000+ Recipe Database** - Extensive collection of curated recipes  
+✅ **Smart Search** - Find recipes even with typos  
+✅ **User Authentication** - Email verification + Google SSO  
+✅ **Cloudflare Protection** - Bot protection on login  
+✅ **Custom Admin Panel** - Complete control over users and content  
+✅ **Docker Support** - Easy deployment with containers  
+✅ **Full Monitoring Stack** - Grafana, Prometheus, Loki integration  
 
-  <a href="https://github.com/pypok-1">
-    <img src="https://avatars.githubusercontent.com/u/187442340?v=4" width="100" style="border-radius:50%">
-    <br>
-    <b>pypok-1</b>
-  </a>
-</div>
+---
+
+## How It Works
+
+1. **User enters ingredients** in the AI generator
+2. **OpenRouter AI** processes the request with Gemini 2.0
+3. **Recipe is generated** following strict formatting rules
+4. **Authenticated users** can save recipes to their profile
+5. **Saved recipes** appear in "My Recipes" section
+6. **Admin can manage** all generated content through the panel
+
+---
+
+## Tech Stack
+
+- **Backend**: Django 5.2
+- **Database**: PostgreSQL (production) / SQLite (development)
+- **AI Integration**: OpenRouter API (Gemini 2.0)
+- **Authentication**: Django Auth + Google SSO
+- **Frontend**: HTML, CSS, JavaScript
+- **Security**: Cloudflare Turnstile
+- **Monitoring**: Grafana, Prometheus, Loki
+- **Deployment**: Docker, Nginx
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Python 3.10+
+- pip
+- Git
+
+### Install & Run
+
+```bash
+# Clone the repository
+git clone https://github.com/AndriyPy/Recipe220.git
+cd Recipe220
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your configuration
+
+# Run migrations
+python manage.py migrate
+
+# Create superuser
+python manage.py createsuperuser
+
+# Start development server
+python manage.py runserver
